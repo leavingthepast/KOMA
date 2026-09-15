@@ -1,0 +1,7 @@
+{
+  "name": "KOMA - Cambodian Child Health & Vaccination Tracker",
+  "description": "Digitized Cambodian child health record book, automated national immunization schedule reminders, growth charts, and birthday celebration wishes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
