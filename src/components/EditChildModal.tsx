@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Edit, Calendar, Clock, MapPin, Droplets, AlertCircle, Camera } from 'lucide-react';
 import { Child, Language } from '../types';
 import { translations } from '../data/translations';
+import { compressImage } from '../lib/imageUtils';
 
 interface EditChildModalProps {
   child: Child;
@@ -26,16 +27,15 @@ export const EditChildModal: React.FC<EditChildModalProps> = ({
   const [allergies, setAllergies] = useState(child.allergies || '');
   const [photoUrl, setPhotoUrl] = useState(child.photoUrl);
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (typeof reader.result === 'string') {
-          setPhotoUrl(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        const compressed = await compressImage(file, 300, 300, 0.8);
+        setPhotoUrl(compressed);
+      } catch (err) {
+        console.error('Failed to compress image:', err);
+      }
     }
   };
 

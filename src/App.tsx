@@ -98,19 +98,35 @@ export default function App() {
 
   // Synchronize storage
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_CHILDREN_KEY, JSON.stringify(childrenList));
+    try {
+      localStorage.setItem(LOCAL_STORAGE_CHILDREN_KEY, JSON.stringify(childrenList));
+    } catch (e) {
+      console.warn('LocalStorage quota exceeded for childrenList', e);
+    }
   }, [childrenList]);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_PARENT_KEY, JSON.stringify(parent));
+    try {
+      localStorage.setItem(LOCAL_STORAGE_PARENT_KEY, JSON.stringify(parent));
+    } catch (e) {
+      console.warn('LocalStorage quota exceeded for parent', e);
+    }
   }, [parent]);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_LANG_KEY, language);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_LANG_KEY, language);
+    } catch (e) {
+      console.warn('LocalStorage quota exceeded for language', e);
+    }
   }, [language]);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_PASSWORD_KEY, appPassword);
+    try {
+      localStorage.setItem(LOCAL_STORAGE_PASSWORD_KEY, appPassword);
+    } catch (e) {
+      console.warn('LocalStorage quota exceeded for appPassword', e);
+    }
   }, [appPassword]);
 
   // Requirement: Check child's birthday on app open!

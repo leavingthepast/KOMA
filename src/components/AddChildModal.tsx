@@ -3,6 +3,7 @@ import { X, UserPlus, Calendar, Clock, MapPin, Droplets, AlertCircle, Camera } f
 import { Child, Language } from '../types';
 import { translations } from '../data/translations';
 import { generateVaccineSchedule, CAMBODIAN_HOSPITALS } from '../data/cambodiaVaccineSchedule';
+import { compressImage } from '../lib/imageUtils';
 
 interface AddChildModalProps {
   language: Language;
@@ -28,16 +29,15 @@ export const AddChildModal: React.FC<AddChildModalProps> = ({
 
   const [selectedAvatar, setSelectedAvatar] = useState('https://images.unsplash.com/photo-1543332164-6e82f355badc?w=150&auto=format&fit=crop&q=80');
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (typeof reader.result === 'string') {
-          setSelectedAvatar(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        const compressed = await compressImage(file, 300, 300, 0.8);
+        setSelectedAvatar(compressed);
+      } catch (err) {
+        console.error('Failed to compress image:', err);
+      }
     }
   };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, User, Phone, Mail, MapPin, Camera } from 'lucide-react';
 import { Language, ParentProfile } from '../types';
 import { translations } from '../data/translations';
+import { compressImage } from '../lib/imageUtils';
 
 interface EditParentModalProps {
   parent: ParentProfile;
@@ -31,16 +32,15 @@ export const EditParentModal: React.FC<EditParentModalProps> = ({
     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
   ];
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        if (typeof reader.result === 'string') {
-          setPhotoUrl(reader.result);
-        }
-      };
-      reader.readAsDataURL(file);
+      try {
+        const compressed = await compressImage(file, 300, 300, 0.8);
+        setPhotoUrl(compressed);
+      } catch (err) {
+        console.error('Failed to compress image:', err);
+      }
     }
   };
 
