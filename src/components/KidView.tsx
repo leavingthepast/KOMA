@@ -75,8 +75,6 @@ export const KidView: React.FC<KidViewProps> = ({
     { type: 'OPV', label: t.catOPV, desc: 'Oral Polio Vaccine' },
     { type: 'HIB', label: t.catHIB, desc: 'Pentavalent (DTP-HepB-Hib)' },
     { type: 'PCV', label: t.catPCV, desc: 'Pneumococcal Conjugate' },
-    { type: 'VITAMIN_A', label: t.catVITAMIN_A, desc: 'Vitamin A Micronutrient' },
-    { type: 'DEWORMING', label: t.catDEWORMING, desc: 'Deworming (Mebendazole)' },
     { type: 'OTHER', label: t.catOTHER, desc: 'MR, JE, IPV, HepB' },
   ];
 

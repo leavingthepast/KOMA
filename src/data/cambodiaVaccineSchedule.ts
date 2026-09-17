@@ -199,17 +199,6 @@ export const CAMBODIA_NATIONAL_SCHEDULE: VaccineTemplate[] = [
     recommendedAgeLabelEn: '9 Months',
     recommendedAgeLabelKh: 'អាយុ ៩ ខែ',
   },
-  {
-    category: 'VITAMIN_A',
-    nameEn: 'Vitamin A (100,000 IU blue capsule)',
-    nameKh: 'វីតាមីនអា (១០០,០០០ IU គ្រាប់ខៀវ)',
-    doseNumber: 1,
-    totalDoses: 5,
-    offsetDays: 274,
-    recommendedAgeMonths: 9,
-    recommendedAgeLabelEn: '9 Months (Campaign)',
-    recommendedAgeLabelKh: 'អាយុ ៩ ខែ (យុទ្ធនាការ)',
-  },
 
   // 18 Months (548 days / 1.5 years)
   {
@@ -223,76 +212,7 @@ export const CAMBODIA_NATIONAL_SCHEDULE: VaccineTemplate[] = [
     recommendedAgeLabelEn: '18 Months (1.5 Years)',
     recommendedAgeLabelKh: 'អាយុ ១៨ ខែ (១ខួបកន្លះ)',
   },
-  {
-    category: 'VITAMIN_A',
-    nameEn: 'Vitamin A (200,000 IU red capsule)',
-    nameKh: 'វីតាមីនអា (២០០,០០០ IU គ្រាប់ក្រហម)',
-    doseNumber: 2,
-    totalDoses: 5,
-    offsetDays: 548,
-    recommendedAgeMonths: 18,
-    recommendedAgeLabelEn: '18 Months',
-    recommendedAgeLabelKh: 'អាយុ ១៨ ខែ',
-  },
-  {
-    category: 'DEWORMING',
-    nameEn: 'Deworming Pill (Mebendazole 500mg)',
-    nameKh: 'ថ្នាំទម្លាក់ព្រូន (Mebendazole 500mg)',
-    doseNumber: 1,
-    totalDoses: 4,
-    offsetDays: 548,
-    recommendedAgeMonths: 18,
-    recommendedAgeLabelEn: '18 Months',
-    recommendedAgeLabelKh: 'អាយុ ១៨ ខែ',
-  },
 
-  // 24 Months (2 years)
-  {
-    category: 'VITAMIN_A',
-    nameEn: 'Vitamin A (200,000 IU)',
-    nameKh: 'វីតាមីនអា (២០០,០០០ IU)',
-    doseNumber: 3,
-    totalDoses: 5,
-    offsetDays: 730,
-    recommendedAgeMonths: 24,
-    recommendedAgeLabelEn: '24 Months (2 Years)',
-    recommendedAgeLabelKh: 'អាយុ ២៤ ខែ (២ ឆ្នាំ)',
-  },
-  {
-    category: 'DEWORMING',
-    nameEn: 'Deworming Pill (Semi-Annual)',
-    nameKh: 'ថ្នាំទម្លាក់ព្រូន (រៀងរាល់ ៦ ខែ)',
-    doseNumber: 2,
-    totalDoses: 4,
-    offsetDays: 730,
-    recommendedAgeMonths: 24,
-    recommendedAgeLabelEn: '24 Months (2 Years)',
-    recommendedAgeLabelKh: 'អាយុ ២៤ ខែ (២ ឆ្នាំ)',
-  },
-
-  // 36 Months (3 years)
-  {
-    category: 'VITAMIN_A',
-    nameEn: 'Vitamin A (200,000 IU)',
-    nameKh: 'វីតាមីនអា (២០០,០០០ IU)',
-    doseNumber: 4,
-    totalDoses: 5,
-    offsetDays: 1095,
-    recommendedAgeMonths: 36,
-    recommendedAgeLabelEn: '36 Months (3 Years)',
-    recommendedAgeLabelKh: 'អាយុ ៣៦ ខែ (៣ ឆ្នាំ)',
-  },
-  {
-    category: 'DEWORMING',
-    nameEn: 'Deworming Pill (Semi-Annual)',
-    nameKh: 'ថ្នាំទម្លាក់ព្រូន (រៀងរាល់ ៦ ខែ)',
-    doseNumber: 3,
-    totalDoses: 4,
-    offsetDays: 1095,
-    recommendedAgeMonths: 36,
-    recommendedAgeLabelEn: '36 Months (3 Years)',
-    recommendedAgeLabelKh: 'អាយុ ៣៦ ខែ (៣ ឆ្នាំ)',
-  },
 ];
 
 /**

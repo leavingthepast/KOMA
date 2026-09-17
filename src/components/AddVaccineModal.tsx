@@ -123,8 +123,6 @@ export const AddVaccineModal: React.FC<AddVaccineModalProps> = ({
                 <option value="OPV">OPV (Polio)</option>
                 <option value="HIB">Pentavalent (HIB)</option>
                 <option value="PCV">PCV</option>
-                <option value="VITAMIN_A">Vitamin A</option>
-                <option value="DEWORMING">Deworming</option>
                 <option value="OTHER">Other / Special</option>
               </select>
             </div>

@@ -129,6 +129,16 @@ export const TipsView: React.FC<TipsViewProps> = ({ language }) => {
         >
           {language === 'kh' ? 'អាហារូបត្ថម្ភតាមអាយុ' : 'Nutrition by Age'}
         </button>
+        <button
+          onClick={() => setSelectedCategory('campaigns')}
+          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all shrink-0 ${
+            selectedCategory === 'campaigns'
+              ? 'bg-emerald-600 text-white shadow-xs'
+              : 'bg-white text-stone-600 border border-stone-200'
+          }`}
+        >
+          {t.vitaminDewormingCampaign}
+        </button>
 
         <button
           onClick={() => setSelectedCategory('warnings')}
@@ -216,6 +226,61 @@ export const TipsView: React.FC<TipsViewProps> = ({ language }) => {
       )}
 
 
+
+      {/* Category Content: Campaigns */}
+      {selectedCategory === 'campaigns' && (
+        <div className="bg-white rounded-2xl p-4 border border-stone-200 shadow-xs space-y-3">
+          <div className="flex items-center gap-2">
+            <div className="p-2 rounded-lg bg-rose-100 text-rose-700">
+              <Apple className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-sm font-bold text-stone-900">
+                {language === 'kh' ? 'យុទ្ធនាការផ្តល់វីតាមីនអា និងថ្នាំទម្លាក់ព្រូន' : 'National Vitamin A & Deworming Campaigns'}
+              </h3>
+              <p className="text-[11px] text-stone-500 font-semibold">
+                {language === 'kh' ? 'រៀបចំឡើង ២ ដងក្នុងមួយឆ្នាំនៅទូទាំងប្រទេសកម្ពុជា៖ ឧសភា & វិច្ឆិកា' : 'Held twice annually across Cambodia: May & November'}
+              </p>
+            </div>
+          </div>
+
+          <p className="text-xs text-stone-600 leading-relaxed">
+            {language === 'kh'
+              ? 'ការបន្ថែមវីតាមីនអា ជួយការពារកុមារពីកង្វះវីតាមីនអា ពង្រឹងមុខងារប្រព័ន្ធការពាររាងកាយធម្មតា និងការពារជំងឺខ្វាក់មាន់។'
+              : 'Vitamin A supplementation helps protect children from vitamin A deficiency, supports normal immune function, and helps prevent night blindness.'}
+          </p>
+
+          <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl">
+              <span className="font-bold text-blue-900 block mb-1">
+                {language === 'kh' ? '🔵 គ្រាប់ពណ៌ខៀវ — ១០០,០០០ IU' : '🔵 Blue Capsule — 100,000 IU'}
+              </span>
+              <p className="text-[11px] text-blue-700">
+                {language === 'kh' ? 'សម្រាប់កុមារ ៦–១១ ខែ' : 'For children 6–11 months'}
+              </p>
+            </div>
+            <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl">
+              <span className="font-bold text-rose-900 block mb-1">
+                {language === 'kh' ? '🔴 គ្រាប់ពណ៌ក្រហម — ២០០,០០០ IU' : '🔴 Red Capsule — 200,000 IU'}
+              </span>
+              <p className="text-[11px] text-rose-700">
+                {language === 'kh' ? 'សម្រាប់កុមារ ១២–៥៩ ខែ' : 'For children 12–59 months'}
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-2">
+            <h4 className="text-xs font-bold text-stone-900 mb-1">
+              {language === 'kh' ? 'ការទម្លាក់ព្រូន' : 'Deworming'}
+            </h4>
+            <p className="text-xs text-stone-600 leading-relaxed">
+              {language === 'kh'
+                ? 'ការទម្លាក់ព្រូនតាមកាលកំណត់ ជួយកាត់បន្ថយការឆ្លងមេរោគព្រូនក្នុងពោះវៀន និងឥទ្ធិពលរបស់វាទៅលើសុខភាព និងអាហារូបត្ថម្ភរបស់កុមារ។'
+                : 'Periodic deworming helps reduce intestinal worm infections and their effects on children\'s health and nutrition.'}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Category Content: Warnings */}
       {selectedCategory === 'warnings' && (

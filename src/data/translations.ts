@@ -104,7 +104,7 @@ export const translations = {
     // Tips
     developmentalMilestones: 'Common developmental milestones',
     nutritionGuidance: 'Nutrition & Breastfeeding',
-    vitaminDewormingCampaign: 'National Vitamin A & Deworming Campaigns',
+    vitaminDewormingCampaign: 'Vitamin A and Deworming pill intake',
   },
   kh: {
     appName: 'កុមារ (KOMA)',
@@ -211,6 +211,6 @@ export const translations = {
     // Tips
     developmentalMilestones: 'ដំណាក់កាលលូតលាស់របស់កុមារ',
     nutritionGuidance: 'អាហារូបត្ថម្ភ និងការបំបៅកូន',
-    vitaminDewormingCampaign: 'យុទ្ធនាការផ្តល់វីតាមីនអា និងថ្នាំទម្លាក់ព្រូនជាតិ',
+    vitaminDewormingCampaign: 'ការទទួលទានវីតាមីនអា និងថ្នាំទម្លាក់ព្រូន',
   }
 };

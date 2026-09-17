@@ -5,8 +5,6 @@ export type VaccineCategoryType =
   | 'OPV'
   | 'HIB'
   | 'PCV'
-  | 'VITAMIN_A'
-  | 'DEWORMING'
   | 'OTHER';
 
 export interface VaccineDose {
