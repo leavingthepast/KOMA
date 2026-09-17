@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Child, Language, ParentProfile, VaccineDose, GrowthRecord } from './types';
-import { DEFAULT_PARENT, createInitialChildren } from './data/defaultData';
+import { DEFAULT_PARENT, DEMO_PARENT, createInitialChildren, createDemoChildren } from './data/defaultData';
 import { isBirthdayToday } from './data/cambodiaVaccineSchedule';
 import { Header } from './components/Header';
 import { Navigation, TabType } from './components/Navigation';
@@ -17,6 +17,8 @@ import { EditChildModal } from './components/EditChildModal';
 import { EditParentModal } from './components/EditParentModal';
 import { AddGrowthModal } from './components/AddGrowthModal';
 import { ChangePasswordModal } from './components/ChangePasswordModal';
+import { AddVaccineModal } from './components/AddVaccineModal';
+import { LoginView } from './components/LoginView';
 
 const LOCAL_STORAGE_CHILDREN_KEY = 'koma_cambodia_children_v2';
 const LOCAL_STORAGE_PARENT_KEY = 'koma_cambodia_parent_v2';
@@ -77,6 +79,9 @@ export default function App() {
     return localStorage.getItem(LOCAL_STORAGE_PASSWORD_KEY) || '1234';
   });
 
+  // Login authentication state (defaults to false so login page shows first)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   // Modal states
   const [birthdayChild, setBirthdayChild] = useState<Child | null>(null);
   const [completingVaccine, setCompletingVaccine] = useState<{
@@ -88,6 +93,7 @@ export default function App() {
   const [editingChild, setEditingChild] = useState<Child | null>(null);
   const [isEditParentOpen, setIsEditParentOpen] = useState(false);
   const [growthRecordingChild, setGrowthRecordingChild] = useState<Child | null>(null);
+  const [addingVaccineChild, setAddingVaccineChild] = useState<Child | null>(null);
   const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
 
   // Synchronize storage
@@ -211,15 +217,56 @@ export default function App() {
     setGrowthRecordingChild(null);
   };
 
+  // Add custom vaccination
+  const handleSaveNewVaccine = (targetChild: Child, newVaccine: VaccineDose) => {
+    setChildrenList((prev) =>
+      prev.map((c) => {
+        if (c.id !== targetChild.id) return c;
+        return {
+          ...c,
+          vaccines: [...c.vaccines, newVaccine],
+        };
+      })
+    );
+    setAddingVaccineChild(null);
+  };
+
   // Reset demo data
   const handleResetData = () => {
     const initial = createInitialChildren();
     setChildrenList(initial);
     setParent(DEFAULT_PARENT);
-    setSelectedChildId(initial[0].id);
+    setSelectedChildId(initial[0]?.id || '');
     localStorage.removeItem(LOCAL_STORAGE_CHILDREN_KEY);
     localStorage.removeItem(LOCAL_STORAGE_PARENT_KEY);
   };
+
+  const handleDemoLogin = () => {
+    const demoKids = createDemoChildren();
+    setChildrenList(demoKids);
+    setParent(DEMO_PARENT);
+    if (demoKids.length > 0) {
+      setSelectedChildId(demoKids[0].id);
+    }
+    setIsLoggedIn(true);
+  };
+
+  if (!isLoggedIn) {
+    return (
+      <LoginView
+        language={language}
+        onLanguageChange={handleLanguageChange}
+        onLoginSuccess={(email, password) => {
+          setIsLoggedIn(true);
+          setParent((prev) => ({ ...prev, email }));
+          if (password) {
+            setAppPassword(password);
+          }
+        }}
+        onDemoLogin={handleDemoLogin}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-stone-100 flex justify-center selection:bg-emerald-100">
@@ -262,6 +309,7 @@ export default function App() {
               onCheckVaccine={handleTriggerCheckVaccine}
               onOpenPhysicalCard={(c) => setPhysicalBookletChild(c)}
               onAddGrowthRecord={(c) => setGrowthRecordingChild(c)}
+              onAddVaccine={(c) => setAddingVaccineChild(c)}
               language={language}
             />
           )}
@@ -293,6 +341,10 @@ export default function App() {
               onOpenBooklet={(kid) => setPhysicalBookletChild(kid)}
               onEditParent={() => setIsEditParentOpen(true)}
               onResetData={handleResetData}
+              onLogout={() => {
+                setIsLoggedIn(false);
+                setActiveTab('home');
+              }}
             />
           )}
         </main>
@@ -386,6 +438,16 @@ export default function App() {
               setAppPassword(newPass);
             }}
             onClose={() => setIsChangePasswordOpen(false)}
+          />
+        )}
+
+        {/* 9. Add Custom Vaccine Modal */}
+        {addingVaccineChild && (
+          <AddVaccineModal
+            child={addingVaccineChild}
+            language={language}
+            onSave={handleSaveNewVaccine}
+            onClose={() => setAddingVaccineChild(null)}
           />
         )}
       </div>

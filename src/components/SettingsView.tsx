@@ -8,7 +8,8 @@ import {
   User, 
   RefreshCw, 
   ShieldCheck, 
-  Phone
+  Phone,
+  LogOut
 } from 'lucide-react';
 import { Child, Language, ParentProfile } from '../types';
 import { translations } from '../data/translations';
@@ -23,6 +24,7 @@ interface SettingsViewProps {
   onOpenBooklet: (child: Child) => void;
   onEditParent: () => void;
   onResetData: () => void;
+  onLogout: () => void;
 }
 
 export const SettingsView: React.FC<SettingsViewProps> = ({
@@ -35,6 +37,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
   onOpenBooklet,
   onEditParent,
   onResetData,
+  onLogout,
 }) => {
   const t = translations[language];
 
@@ -198,6 +201,37 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
 
 
 
+      {/* SECTION 5: Log Out */}
+      <div className="bg-white rounded-2xl p-4 border border-stone-200 shadow-xs space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="p-2 rounded-lg bg-rose-100 text-rose-700">
+              <LogOut className="w-4 h-4" />
+            </div>
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900">
+                {language === 'kh' ? 'ចាកចេញពីគណនី' : 'Account Log Out'}
+              </h3>
+              <p className="text-[11px] text-stone-500">
+                {language === 'kh' ? 'ចាកចេញពីកម្មវិធី KOMA ដោយសុវត្ថិភាព' : 'Securely log out of your KOMA session'}
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              onLogout();
+            }}
+            className="px-3.5 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs transition-colors"
+          >
+            <LogOut className="w-3.5 h-3.5" />
+            <span>{language === 'kh' ? 'ចាកចេញ' : 'Log Out'}</span>
+          </button>
+        </div>
+      </div>
+
+
+
       {/* SECTION 6: Cambodia Pediatric Hotlines */}
       <div className="bg-white rounded-2xl p-4 border border-stone-200 shadow-xs space-y-2">
         <div className="flex items-center gap-2 text-rose-600">
@@ -208,18 +242,18 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
         </div>
 
         <div className="grid grid-cols-2 gap-2 text-xs">
-          <div className="p-2 rounded-xl bg-stone-50 border border-stone-200">
+          <a href="tel:115" className="p-2 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors block">
             <span className="text-[10px] text-stone-500 block">
               {language === 'kh' ? 'សង្គ្រោះជាតិ' : 'National'}
             </span>
-            <span className="font-bold text-rose-600 font-mono">115 / 119</span>
-          </div>
-          <div className="p-2 rounded-xl bg-stone-50 border border-stone-200">
+            <span className="font-bold text-rose-600 font-mono underline decoration-dotted">115 / 119</span>
+          </a>
+          <a href="tel:023428009" className="p-2 rounded-xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors block">
             <span className="text-[10px] text-stone-500 block">
               {language === 'kh' ? 'គន្ធបុប្ផា' : 'Kantha Bopha'}
             </span>
-            <span className="font-bold text-stone-900 font-mono">023 427 947</span>
-          </div>
+            <span className="font-bold text-stone-900 font-mono underline decoration-dotted">023 428 009</span>
+          </a>
         </div>
       </div>
 

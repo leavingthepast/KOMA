@@ -133,16 +133,16 @@ export const BirthdayModal: React.FC<BirthdayModalProps> = ({
           </p>
         </div>
 
-        {/* Sokhapheap digital wishing wireframe text */}
+        {/* KOMA wishing wireframe text */}
         <div className="bg-stone-50 border border-stone-200 rounded-2xl p-3.5 my-3 text-left">
           <div className="flex items-center gap-1.5 text-xs font-bold text-stone-800 mb-1">
             <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
-            <span>Sokhapheap Digital Wishing</span>
+            <span>KOMA Health Wishes</span>
           </div>
           <p className="text-xs text-stone-600 leading-relaxed">
             {language === 'kh'
-              ? `សុខភាពឌីជីថល (Sokhapheap Digital) សូមប្រសិទ្ធពរជ័យសិរីសួស្តីដល់កូន ${child.name} ក្នុងថ្ងៃខួបកំណើតគម្រប់ខួបនេះ! សូមឱ្យកូនមានសុខភាពល្អបរិបូរណ៍ ប្រាជ្ញាឈ្លាសវៃ សុវត្ថិភាព ជៀសផុតពីជំងឺទាំងពួង និងមានអនាគតភ្លឺស្វាង!`
-              : `Sokhapheap Digital warmly wishes dear ${child.name} boundless happiness, strong immunity, wisdom, protection, and a bright, joyful journey through life!`}
+              ? `KOMA សូមប្រសិទ្ធពរជ័យសិរីសួស្តីដល់កូន ${child.name} ក្នុងថ្ងៃខួបកំណើតគម្រប់ខួបនេះ! សូមឱ្យកូនមានសុខភាពល្អបរិបូរណ៍ ប្រាជ្ញាឈ្លាសវៃ សុវត្ថិភាព ជៀសផុតពីជំងឺទាំងពួង និងមានអនាគតភ្លឺស្វាង!`
+              : `KOMA warmly wishes dear ${child.name} boundless happiness, strong immunity, wisdom, protection, and a bright, joyful journey through life!`}
           </p>
           <div className="flex items-center gap-3 mt-2.5 pt-2 border-t border-stone-200 text-[11px] text-stone-500">
             <span className="inline-flex items-center gap-1">

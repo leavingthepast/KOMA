@@ -35,7 +35,7 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
   ];
 
   const daysOfWeekEn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const daysOfWeekKh = ['អាទិត្យ', 'ចន្ទ', 'អង្គារ', 'ពុធ', 'ព្រហ', 'សុក្រ', 'សៅរ៍'];
+  const daysOfWeekKh = ['អាទិត្យ', 'ច័ន្ទ', 'អង្គារ', 'ពុធ', 'ព្រហស្បតិ៍', 'សុក្រ', 'សៅរ៍'];
 
   // Handle Prev/Next Month
   const handlePrevMonth = () => {
@@ -143,11 +143,11 @@ export const CalendarView: React.FC<CalendarViewProps> = ({
           {(language === 'kh' ? daysOfWeekKh : daysOfWeekEn).map((d, idx) => (
             <span
               key={idx}
-              className={`text-[11px] font-bold py-1 ${
+              className={`text-[9.5px] sm:text-[10px] font-bold py-1 px-0.5 truncate ${
                 idx === 0 || idx === 6 ? 'text-rose-500' : 'text-stone-500'
               }`}
             >
-              {d.slice(0, 3)}
+              {language === 'kh' ? d : d.slice(0, 3)}
             </span>
           ))}
         </div>

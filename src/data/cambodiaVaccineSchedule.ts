@@ -180,7 +180,7 @@ export const CAMBODIA_NATIONAL_SCHEDULE: VaccineTemplate[] = [
   {
     category: 'OTHER',
     nameEn: 'Japanese Encephalitis (JE)',
-    nameKh: 'រលាកខួរក្បាលជប៉ុន (JE)',
+    nameKh: 'ថ្នាំបង្ការជម្ងឺរលាកខួរក្បាលជេអ៊ី',
     doseNumber: 1,
     totalDoses: 1,
     offsetDays: 274,

@@ -20,7 +20,7 @@ export const translations = {
     saveRecord: 'Save Record',
     cancel: 'Cancel',
     happyBirthday: 'HAPPY BIRTHDAY',
-    birthdayWish: 'Sokhapheap Digital wishes you health, happiness, protection, and a joyful, bright future!',
+    birthdayWish: 'KOMA wishes you health, happiness, protection, and a joyful, bright future!',
     close: 'Close',
     celebrate: 'Celebrate 🎉',
     testBirthdayMode: 'Test Birthday Wish',
@@ -102,7 +102,7 @@ export const translations = {
     whoStandard: 'WHO Cambodia Growth Percentile Curve',
     
     // Tips
-    developmentalMilestones: 'Child Development Milestones',
+    developmentalMilestones: 'Common developmental milestones',
     nutritionGuidance: 'Nutrition & Breastfeeding',
     vitaminDewormingCampaign: 'National Vitamin A & Deworming Campaigns',
   },
@@ -127,7 +127,7 @@ export const translations = {
     saveRecord: 'រក្សាទុកទិន្នន័យ',
     cancel: 'បោះបង់',
     happyBirthday: 'រីករាយថ្ងៃខួបកំណើត',
-    birthdayWish: 'សុខភាពឌីជីថល (Sokhapheap Digital) សូមជូនពរឱ្យកូនមានសុខភាពល្អបរិបូរណ៍ ប្រាជ្ញាឈ្លាសវៃ សុវត្ថិភាព និងអនាគតភ្លឺស្វាង!',
+    birthdayWish: 'KOMA សូមជូនពរឱ្យកូនមានសុខភាពល្អបរិបូរណ៍ ប្រាជ្ញាឈ្លាសវៃ សុវត្ថិភាព និងអនាគតភ្លឺស្វាង!',
     close: 'បិទ',
     celebrate: 'អបអរសាទរ 🎉',
     testBirthdayMode: 'សាកល្បងសារជូនពរថ្ងៃកំណើត',

@@ -14,23 +14,6 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <header className="w-full bg-white border-b border-stone-200 sticky top-0 z-30 shadow-xs">
-      {/* Mobile status bar simulation */}
-      <div className="flex justify-between items-center px-4 pt-1.5 pb-1 text-[11px] text-stone-500 font-medium tracking-tight">
-        <span>09:41</span>
-        <div className="flex items-center gap-1.5">
-          <span className="inline-block w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" title="Offline Mode Ready"></span>
-          <span className="text-[10px] uppercase font-semibold tracking-wider text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
-            {language === 'kh' ? 'ក្រៅបណ្តាញ' : 'Offline Ready'}
-          </span>
-          <svg className="w-3.5 h-3.5 text-stone-600" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L12 22l7.03-4.39C20.26 16.07 21 14.12 21 12c0-4.97-4.03-9-9-9z"/>
-          </svg>
-          <div className="w-5 h-2.5 border border-stone-600 rounded-xs p-0.5 flex items-center">
-            <div className="w-3.5 h-1.5 bg-stone-700 rounded-2xs"></div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header bar matching wireframe */}
       <div className="flex items-center justify-between px-4 py-2.5">
         <div className="flex items-center gap-2">

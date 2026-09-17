@@ -39,6 +39,7 @@ interface KidViewProps {
   onCheckVaccine: (child: Child, vaccine: VaccineDose) => void;
   onOpenPhysicalCard: (child: Child) => void;
   onAddGrowthRecord: (child: Child) => void;
+  onAddVaccine: (child: Child) => void;
   language: Language;
 }
 
@@ -51,6 +52,7 @@ export const KidView: React.FC<KidViewProps> = ({
   onCheckVaccine,
   onOpenPhysicalCard,
   onAddGrowthRecord,
+  onAddVaccine,
   language,
 }) => {
   const t = translations[language];
@@ -190,7 +192,18 @@ export const KidView: React.FC<KidViewProps> = ({
         {/* Accordion Content matching wireframe Screen 5:
             Categories: BCG, OPV, HIB, PCV, VITAMIN A Intake, Deworming Pill, OTHER */}
         {isVaccinationOpen && (
-          <div className="px-3.5 pb-4 pt-1 space-y-3 border-t border-stone-100">
+          <div className="px-3.5 pb-4 pt-2 space-y-3 border-t border-stone-100">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={() => onAddVaccine(child)}
+                className="text-xs font-bold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-3 py-1.5 rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-2xs"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>{language === 'kh' ? 'បន្ថែមវ៉ាក់សាំង' : 'Add Custom Vaccine'}</span>
+              </button>
+            </div>
+
             {categories.map((cat) => {
               const catVaccines = child.vaccines.filter((v) => v.category === cat.type);
               if (catVaccines.length === 0) return null;
